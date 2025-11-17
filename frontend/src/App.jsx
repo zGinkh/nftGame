@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
-import Home from "./pages/home.jsx"
-import './App.css'
+import Home from "./pages/home"
+import {BrowserRouter,Routes, Route, Link} from "react-router-dom"
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+
 
 function App() {
   return(<>
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-
-    </Routes>
+  <Routes>
+    <Route path="/" element={<Home />}/>
+  </Routes>
   </BrowserRouter>
   </>);
 }
