@@ -7,11 +7,13 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
+    mapping(address => uint256) last_Time;
     mapping(uint256 => string) petsUri;
     mapping(address => uint256) user_Exp;
     mapping(address => uint256) pet_Exp;
+    mapping(address => uint256) pet_Happy;
     mapping(address => uint256) pet_Level;
-
+    
     struct Production {
         uint256 id;
         uint256 price;
@@ -37,6 +39,12 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
     struct add_user_expResult{
         uint256 current_user_Exp;
+    }
+    struct happy_calculateResult{
+        uint256 current_pet_Happy;
+        uint256 current_pet_Exp;
+        uint256 current_pet_Level;
+        string message;
     }
     uint256 private _nextTokenId;
     mapping(address => uint256) user_TokenId;
@@ -115,15 +123,19 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         }
         user_Exp[msg.sender] -= production[_id].price;
         pet_Exp[msg.sender] += production[_id].nutrition;
+        add_pet_level();
         return shoppingResult({
             isError: false,
             message: "Purchase Successful",
             current_user_Exp: user_Exp[msg.sender],
             current_pet_Exp: pet_Exp[msg.sender]
         });
-        add_pet_level();
     }
-
+    //初始化获取时间
+    function startgetCurrentTimestamp() public{
+        last_Time[msg.sender] = block.timestamp;
+        pet_Happy[msg.sender] = 600;
+    }
     //制造宠物函数
     function mint() public returns (MintResult memory){
         if(user_Exp[msg.sender]<100){
@@ -142,12 +154,54 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _safeMint(msg.sender, tokenId);
         _setTokenURI(tokenId, uri);
         user_TokenId[msg.sender] = tokenId;
+        startgetCurrentTimestamp();
         return MintResult({
             isError: false,
             message: "Creat pets successfully!"
         });
     }
 
+    function happy_calculate(uint256 time_Pass) public returns(happy_calculateResult memory){
+        uint256 value = time_Pass/60/60*24;
+        if(pet_Happy[msg.sender]>value){
+            pet_Happy[msg.sender] -= value;
+            return happy_calculateResult({
+                current_pet_Happy: pet_Happy[msg.sender],
+                current_pet_Exp: pet_Exp[msg.sender],
+                current_pet_Level: pet_Level[msg.sender],
+                message: "please attention your pet emotion!"
+            });
+        }else{
+            pet_Happy[msg.sender] = 0;
+            if(pet_Level[msg.sender]>=1){
+                pet_Level[msg.sender] -= 1;
+                updateUri(pet_Level[msg.sender]);
+
+                return happy_calculateResult({
+                    current_pet_Happy: 0,
+                    current_pet_Exp: pet_Exp[msg.sender],
+                    current_pet_Level: pet_Level[msg.sender],
+                    message: "Level substract 1"
+                });
+            }else{
+                return happy_calculateResult({
+                    current_pet_Happy: 0,
+                    current_pet_Exp: pet_Exp[msg.sender],
+                    current_pet_Level: pet_Level[msg.sender],
+                    message: "Your pet's level is already 0"
+                });
+            }
+            
+        }
+
+    }
+    //获取时间
+    function getCurrentTimestamp() public{
+        if(last_Time[msg.sender]==0) revert();
+        uint256 now_Time = block.timestamp;
+        happy_calculate(now_Time-last_Time[msg.sender]);
+        last_Time[msg.sender] = now_Time;
+    }
     //必要函数
     function _update(address to, uint256 tokenId, address auth)
         internal
