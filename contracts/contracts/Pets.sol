@@ -107,7 +107,7 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         updateUri(pet_Level[msg.sender]);
         return add_pet_levelResult({
             current_pet_Exp: pet_Exp[msg.sender],
-            current_pet_Level: pet_Level[msg.sender],
+            current_pet_Level: pet_Level[msg.sender]
         });
     }
 
