@@ -32,9 +32,6 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         string message;
         uint256 current_user_Exp;
         uint256 current_pet_Exp;
-    }//
-    struct add_pet_levelResult{
-        uint256 current_pet_Exp;
         uint256 current_pet_Level;
     }//
     struct add_user_expResult{
@@ -99,16 +96,12 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _setTokenURI(user_TokenId[msg.sender],newUri);
     }
     //宠物升级函数
-    function add_pet_level() public returns(add_pet_levelResult memory){
+    function add_pet_level() public{
         while(pet_Exp[msg.sender]>=100){
-                pet_Level[msg.sender] += 1;
-                pet_Exp[msg.sender] -= 100;
+            pet_Level[msg.sender] += 1;
+            pet_Exp[msg.sender] -= 100;
         }
         updateUri(pet_Level[msg.sender]);
-        return add_pet_levelResult({
-            current_pet_Exp: pet_Exp[msg.sender],
-            current_pet_Level: pet_Level[msg.sender]
-        });
     }
 
     //商店购买函数
@@ -118,7 +111,8 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
                 isError: true,
                 message: "You don't have enough experience points to buy this production!",
                 current_user_Exp: 0,
-                current_pet_Exp: 0
+                current_pet_Exp: 0,
+                current_pet_Level: 0
             });
         }
         user_Exp[msg.sender] -= production[_id].price;
@@ -129,7 +123,8 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
             isError: false,
             message: "Purchase Successful",
             current_user_Exp: user_Exp[msg.sender],
-            current_pet_Exp: pet_Exp[msg.sender]
+            current_pet_Exp: pet_Exp[msg.sender],
+            current_pet_Level: pet_Level[msg.sender]
         });
     }
     //初始化获取时间
@@ -162,44 +157,50 @@ contract Pets is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         });
     }
     //计算宠物快乐度函数
-    function happy_calculate(uint256 time_Pass) public returns(happy_calculateResult memory){
+    function happy_calculate(uint256 time_Pass) public returns(uint256 x){
         uint256 value = time_Pass/60/60*24;
         if(pet_Happy[msg.sender]>value){
             pet_Happy[msg.sender] -= value;
+            return 0;
+        }else{
+            pet_Happy[msg.sender] = 0;
+            if(pet_Level[msg.sender]>=1){
+                pet_Level[msg.sender] -= 1;
+                updateUri(pet_Level[msg.sender]);
+                return 1;   
+            }else{
+                return 2;
+            }  
+        }
+    }
+    //获取时间
+    function getCurrentTimestamp() public returns(happy_calculateResult memory){
+        if(last_Time[msg.sender]==0) revert();
+        uint256 now_Time = block.timestamp;
+        uint256 x=happy_calculate(now_Time-last_Time[msg.sender]);
+        last_Time[msg.sender] = now_Time;
+        if(x==0){
             return happy_calculateResult({
                 current_pet_Happy: pet_Happy[msg.sender],
                 current_pet_Exp: pet_Exp[msg.sender],
                 current_pet_Level: pet_Level[msg.sender],
                 message: "please attention your pet emotion!"
             });
+        }else if(x==1){
+            return happy_calculateResult({
+                current_pet_Happy: 0,
+                current_pet_Exp: pet_Exp[msg.sender],
+                current_pet_Level: pet_Level[msg.sender],
+                message: "Level substract 1"
+            });
         }else{
-            pet_Happy[msg.sender] = 0;
-            if(pet_Level[msg.sender]>=1){
-                pet_Level[msg.sender] -= 1;
-                updateUri(pet_Level[msg.sender]);
-
-                return happy_calculateResult({
-                    current_pet_Happy: 0,
-                    current_pet_Exp: pet_Exp[msg.sender],
-                    current_pet_Level: pet_Level[msg.sender],
-                    message: "Level substract 1"
-                });
-            }else{
-                return happy_calculateResult({
-                    current_pet_Happy: 0,
-                    current_pet_Exp: pet_Exp[msg.sender],
-                    current_pet_Level: pet_Level[msg.sender],
-                    message: "Your pet's level is already 0"
-                });
-            }  
+            return happy_calculateResult({
+                current_pet_Happy: 0,
+                current_pet_Exp: pet_Exp[msg.sender],
+                current_pet_Level: pet_Level[msg.sender],
+                message: "Your pet's level is already 0"
+            });
         }
-    }
-    //获取时间
-    function getCurrentTimestamp() public{
-        if(last_Time[msg.sender]==0) revert();
-        uint256 now_Time = block.timestamp;
-        happy_calculate(now_Time-last_Time[msg.sender]);
-        last_Time[msg.sender] = now_Time;
     }
 
     //必要函数
