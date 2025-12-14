@@ -1,146 +1,143 @@
 @font-face {
-    font-family: 'Jockey One Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url('../font/JockeyOne-Regular.woff') format('woff');
-    }
-
-
-body{
-    background-color: rgb(255, 255, 255);
-    font-family: 'Jockey One Regular';
+  font-family: "Jockey One Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../font/JockeyOne-Regular.woff") format("woff");
 }
 
-
-
-.square{
-    display: flex;
-    position:relative;
-    left:2rem;
-    width: 9rem;
-    height: 9rem;
-    background-color: #f66fcf;
-    z-index: 1;
-    
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: "Jockey One Regular";
 }
 
-.row_rectangle{
-    display: flex;
-    position:relative;
-    top:-9rem;
-    left:10.99rem;
-    width: 21.6rem;
-    height: 9rem;
-    background-color: #f7ff1a;
-    z-index: 1;
+.square {
+  display: flex;
+  position: relative;
+  left: 2rem;
+  width: 7rem;
+  height: 9rem;
+  top: 1rem;
+  background-color: #f66fcf;
+  z-index: 1;
 }
 
-.column_rectangle{
-    display: flex;
-    position:relative;
-    left:2rem;
-    top:-9rem;
-    width: 9rem;
-    height: 31.5rem;
-    background-color: #f7ff1a;
-    z-index: 1;
-}
-.displayPart{
-    display: flex;
-    position:relative;
-    top:-40.5rem;
-    left: 10.99rem;
-    width: 21.6rem;
-    height: 31.5rem;
-    background-color: white;
-    z-index: 1;
+.row_rectangle {
+  display: flex;
+  position: relative;
+  top: -8rem;
+  left: 8rem;
+  width: 17.1rem;
+  height: 6rem;
+  background-color: #f7ff1a;
+  z-index: 1;
 }
 
-.wholeCard{
-    position: relative;
-    top:10rem;
-    left:5rem;
+.column_rectangle {
+  display: flex;
+  position: relative;
+  left: 2rem;
+  top: -8.2rem;
+  width: 6rem;
+  height: 29rem;
+  background-color: #f7ff1a;
+  z-index: 1;
+}
+.displayPart {
+  display: flex;
+  position: relative;
+  top: -37rem;
+  left: 8rem;
+  width: 17.1rem;
+  height: 28.79rem;
+  background-color: white;
+  z-index: 1;
 }
 
-.shadow{
-    display: flex;
-    position:relative;
-    background-color: #f66fcf;
-    width: 30.6rem;
-    height: 40.5rem;
-    top:-77rem;
-    left: 6rem;
-    z-index: 0;
+.wholeCard {
+  position: relative;
+  top: 10rem;
+  left: 5rem;
 }
 
-.Lv{
-    display: flex;
-    position:relative;
-    left:0.5rem;
-    font-size: 2.5rem;
-    color: white;
-}
-.level{
-    display: flex;
-    position:relative;
-    top:2rem;
-    left:-0.5rem;
-    font-size: 5rem;
-    color: white;
+.shadow {
+  display: flex;
+  position: relative;
+  background-color: #f66fcf;
+  width: 22rem;
+  height: 34rem;
+  top: -69rem;
+  left: 5rem;
+  z-index: 0;
 }
 
-.STGE{
-    display: flex;
-    position:relative;
-    top:0rem;
-    left:2rem;
-    font-size: 3.5rem;
-    color: black;
+.Lv {
+  display: flex;
+  position: relative;
+  left: 0.5rem;
+
+  font-size: 2.5rem;
+  color: white;
 }
-.stgeValue{
-     display: flex;
-    position:relative;
-    top:1.5rem;
-    left:5rem;
-    font-size: 6rem;
-    color: black;
+.level {
+  display: flex;
+  position: relative;
+  top: 2rem;
+  left: -0.5rem;
+  font-size: 2.5rem;
+  color: white;
 }
 
-.year{
-    display: flex;
-    position:relative;
-    top:14rem;
-    left:0rem;
-    font-size: 3rem;
-    color: black;
+.STGE {
+  display: flex;
+  position: relative;
+  top: 0rem;
+  left: 2rem;
+  font-size: 3rem;
+  color: black;
+}
+.stgeValue {
+  display: flex;
+  position: relative;
+  top: -0.1rem;
+  left: 4rem;
+  font-size: 5rem;
+  color: black;
 }
 
-.month{
-    display: flex;
-    position:relative;
-    top:17rem;
-    left:-1rem;
-    font-size: 6rem;
-    color: black;
+.year {
+  display: flex;
+  position: relative;
+  top: 11rem;
+  left: 0rem;
+  font-size: 3rem;
+  color: black;
 }
 
-.day{
-    display: flex;
-    position:relative;
-    top:24rem;
-    left:-5.4rem;
-    font-size: 5rem;
-    color: black;
+.month {
+  display: flex;
+  position: relative;
+  top: 17rem;
+  left: -3rem;
+  font-size: 4rem;
+  color: black;
 }
 
-.words{
-    position:relative;
-    left:2rem;
-    top:20rem;
-    font-size: 2rem;
-    word-wrap: break-word;
-    overflow-x:hidden;
-    max-height: 10rem;
-    max-width: 19rem;
-    
+.day {
+  display: flex;
+  position: relative;
+  top: 22rem;
+  left: -6.6rem;
+  font-size: 4rem;
+  color: black;
+}
+
+.words {
+  position: relative;
+  left: 0.5rem;
+  top: 18rem;
+  font-size: 2rem;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  max-height: 10rem;
+  max-width: 19rem;
 }

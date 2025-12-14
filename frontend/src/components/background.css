@@ -1,0 +1,19 @@
+.black1 {
+  position: relative;
+  width: 1260px;
+  height: 690px;
+  left: 40px;
+  top: -10px;
+
+  background: #000000;
+}
+
+.white1 {
+  position: relative;
+  width: 1260px;
+  height: 690px;
+  left: 0px;
+  top: -780px;
+
+  background: #ffffff;
+}

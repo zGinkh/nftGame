@@ -1,0 +1,30 @@
+.pink2 {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  left: 1230px;
+  top: -70px;
+
+  background: #f66fcf;
+}
+
+.black2 {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  left: 1240px;
+  top: 2px;
+
+  background: #000000;
+}
+
+.back1 {
+  position: relative;
+  left: 1245px;
+  right: 8.33%;
+  top: -170.33px;
+  bottom: 80.33%;
+  font-size: 80px;
+  background: none;
+  color: rgb(241, 237, 237);
+}

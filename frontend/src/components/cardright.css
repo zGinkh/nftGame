@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "Jockey One Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../font/JockeyOne-Regular.woff") format("woff");
+}
+
+.container1 {
+  position: relative;
+  top: 10rem;
+  left: 5rem;
+}
+
+.square1 {
+  display: flex;
+  position: relative;
+  left: -12.5rem;
+  top: 110px;
+  width: 6rem;
+  height: 5.2rem;
+  background-color: #f66fcf;
+  z-index: 4;
+}
+
+.Lv1 {
+  display: flex;
+  position: relative;
+  left: 2rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.level1 {
+  display: flex;
+  position: relative;
+  top: 2rem;
+  left: -0.4rem;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.yellowbackground {
+  position: relative;
+  width: 370px;
+  height: 550px;
+  left: -200px;
+  top: 20px;
+
+  background: #f7ff1a;
+  border: 1px solid #f7ff1a;
+  z-index: 2;
+}
+
+.year1 {
+  display: flex;
+  position: relative;
+  top: 1rem;
+  left: 9rem;
+  top: -7px;
+  font-size: 3rem;
+  color: black;
+}
+
+.month1 {
+  display: flex;
+  position: relative;
+  top: -2.6rem;
+  left: 13rem;
+  font-size: 3rem;
+  color: black;
+}
+
+.day1 {
+  display: flex;
+  position: relative;
+  top: -7rem;
+  left: 16.6rem;
+  font-size: 3rem;
+  color: black;
+}
+
+.smallsquare {
+  display: flex;
+  position: relative;
+  width: 101px;
+  height: 35px;
+  left: -128px;
+  top: -450px;
+  z-index: 4;
+  background: #f66fcf;
+}
+
+.STGE1 {
+  position: relative;
+  width: 80px;
+  height: 43px;
+  left: 2px;
+  top: -4px;
+
+  font-family: "Jockey One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 42px;
+  z-index: 3;
+  color: #ffffff;
+}
+
+.stgeValue1 {
+  position: relative;
+  width: 80px;
+  height: 43px;
+  left: 12px;
+  top: -4px;
+
+  font-family: "Jockey One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 42px;
+
+  color: #ffffff;
+}
+
+.displaypart1 {
+  display: flex;
+  position: relative;
+  top: -30rem;
+  left: -8rem;
+  width: 17rem;
+  height: 28rem;
+  background-color: white;
+  z-index: 3;
+}
+
+.words1 {
+  position: relative;
+  left: 0.4rem;
+  top: 19rem;
+  font-size: 2rem;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  max-height: 10rem;
+  max-width: 19rem;
+  z-index: 2;
+}
+
+.shadow1 {
+  display: flex;
+  position: relative;
+  background-color: #f66fcf;
+  width: 24rem;
+  height: 33.5rem;
+  top: -62.4rem;
+  left: -10.5rem;
+  z-index: 1;
+}

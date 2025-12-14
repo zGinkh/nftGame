@@ -1,4 +1,159 @@
-.aaa{
-    position: absolute;
-    left:36rem;
+.containerRecord {
+  position: relative;
+  width: 1800px;
+  height: 1024px;
+
+  background: #f7ff1a;
+}
+
+.username {
+  position: relative;
+  width: 2px;
+  height: 13px;
+  left: 330px;
+  top: 20px;
+
+  font-family: "Jockey One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 134px;
+  z-index: 4;
+  color: #000000;
+}
+
+.times {
+  position: absolute;
+  width: 59px;
+  height: 56px;
+  left: 490px;
+  top: 130px;
+
+  font-family: "Jockey One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 49px;
+
+  color: #000000;
+}
+
+.cardPos {
+  position: absolute;
+
+  left: 10px;
+  top: 120px;
+  size: 90px;
+  z-index: 1;
+}
+
+.cardRightPos {
+  left: 750px;
+  top: 80px;
+  size: 90px;
+  position: absolute;
+}
+
+.pinkPos {
+  left: 800px;
+  top: 80px;
+  size: 90px;
+  position: absolute;
+  z-index: 2;
+}
+
+.bgPos {
+  left: 17px;
+  top: 300px;
+  size: 90px;
+  position: absolute;
+}
+
+.closePos {
+  position: absolute;
+  left: 1500px;
+  top: 40px;
+  z-index: 4;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.closePos img {
+  display: block;
+  width: 70px; /* 和你切图一致 */
+  height: 70px;
+}
+
+.editPos {
+  position: absolute;
+  left: 570px;
+  top: 120px;
+  z-index: 4;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+.editPos img {
+  display: block;
+  width: 45px; /* 和你切图一致 */
+  height: 33px;
+}
+
+.black {
+  position: absolute;
+  left: 570px;
+  top: 120px;
+  z-index: 4;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.black img {
+  display: block;
+  width: 45px; /* 和你切图一致 */
+  height: 33px;
+}
+
+.logo {
+  position: absolute;
+  width: 226px;
+  height: 173px;
+  left: 24px;
+  top: 450px;
+}
+.leftPos1 {
+  position: absolute;
+  left: 1000px;
+  top: 280px;
+  z-index: 4;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+.leftPos1 img {
+  display: block;
+  width: 75px; /* 和你切图一致 */
+  height: 65px;
+}
+
+.rightPos1 {
+  position: absolute;
+  left: 1100px;
+  top: 280px;
+  z-index: 4;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.rightPos1 img {
+  display: block;
+  width: 75px; /* 和你切图一致 */
+  height: 65px;
 }
