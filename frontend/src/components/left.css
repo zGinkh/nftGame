@@ -1,0 +1,29 @@
+.black4 {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  left: 1063px;
+  top: 209px;
+
+  background: #000000;
+}
+
+.pink4 {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  left: 1058px;
+  top: 155px;
+
+  background: #e660c5;
+}
+
+.left4 {
+  position: relative;
+  left: 1060px;
+  right: 8.16%;
+  top: 99px;
+  bottom: 8.16%;
+  color: rgb(238, 241, 244);
+  font-size: 43px;
+}

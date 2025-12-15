@@ -1,0 +1,29 @@
+.black6 {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  left: 700px;
+  top: 210px;
+
+  background: #000000;
+}
+
+.pink6 {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  left: 695px;
+  top: 155px;
+
+  background: #e660c5;
+}
+
+.right6 {
+  position: relative;
+  left: 700px;
+  right: 4.17%;
+  top: 100px;
+  bottom: 4.17%;
+  font-size: 40px;
+  color: #ede9e9;
+}
