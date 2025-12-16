@@ -10,7 +10,7 @@ export class NFTSDK {
     
     this.contractAddress = contractAddress;
     this.abi = abi;
-    this.ipfsGateway = ipfsGateway || 'https://sepolia.infura.io/v3/1753e902a5d243499b272f4f7309ab87';
+    this.ipfsGateway = ipfsGateway || 'https://ipfs.io/ipfs/';
     
     // Provider 初始化（使用可选链和空值合并运算符优化）
     if (rpcUrl) {
